@@ -26,7 +26,7 @@ services:
        - ./cnf/mysql-cluster.cnf:/etc/mysql-cluster.cnf
      command: ndbd
 
-   node_data_2:
+   data-node-2:
      image: mysql/mysql-cluster:8.0
      container_name: datanode2
      networks:
@@ -38,7 +38,7 @@ services:
        - ./cnf/mysql-cluster.cnf:/etc/mysql-cluster.cnf
      command: ndbd
 
-   mysql_server_1:
+   mysql-server-1:
      image: mysql/mysql-cluster:8.0
      container_name: mysqlserver1
      environment: 
@@ -55,7 +55,7 @@ services:
      ports:
        - 5000:3306
 
-   mysql_server_2:
+   mysql-server-2:
      image: mysql/mysql-cluster:8.0
      container_name: mysqlserver2
      environment: 
@@ -74,7 +74,7 @@ services:
 
 networks:
   static_ip:
-    name: my_network
+    name: own_net
     ipam:
       driver: default
       config:
